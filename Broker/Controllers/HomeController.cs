@@ -35,6 +35,11 @@ namespace Broker.Controllers
             return Json("Hello");
         }
 
+        public JsonResult GetHello()
+        {
+            return Json("Hello");
+        }
+
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {
