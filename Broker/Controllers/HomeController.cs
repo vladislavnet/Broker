@@ -23,7 +23,8 @@ namespace Broker.Controllers
         {
             return View();
         }
-        
+
+        [Route("api/Get/Shares")]
         public JsonResult GetShares()
         {
             using(var db = new BrokerContext())
