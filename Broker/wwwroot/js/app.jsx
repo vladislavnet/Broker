@@ -1,22 +1,21 @@
-﻿//import React from 'react';
-//import { BrowserRouter, Route, Switch } from 'react-router-dom'
-//import { Navbar } from 'Navbar'
+﻿
+const NavLink = ReactRouterDOM.NavLink;
 
 class Navbar extends React.Component {
     render() {
         <div>
-        <nav className="navbar navbar-dark navbar-expand-lg bg-primary">
-            <div className="navbar-brand">Broker</div>
+            <nav className="navbar navbar-dark navbar-expand-lg bg-primary">
+                <div className="navbar-brand">Broker</div>
 
-            <ul className="navbar-nav">
-                <li className="nav-item">
-                    <NavLink className="nav-link" to="/" exact>Home</NavLink>
-                </li>
-                <li className="nav-item">
-                    <NavLink className="nav-link" to="/"> Stocks</NavLink>
-                </li>
-            </ul>
-        </nav>
+                <ul className="navbar-nav">
+                    <li className="nav-item">
+                        <NavLink className="nav-link" to="/" exact>Home</NavLink>
+                    </li>
+                    <li className="nav-item">
+                        <NavLink className="nav-link" to="/"> Stocks</NavLink>
+                    </li>
+                </ul>
+            </nav>
         </div>
     }
 }
