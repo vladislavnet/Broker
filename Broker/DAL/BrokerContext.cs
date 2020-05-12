@@ -24,6 +24,7 @@ namespace Broker.DAL
         }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
+            optionsBuilder.UseNpgsql("postgres://cjaavpowpuexto:e8615de214091bc839f60bcf881c5d62f08c7decaecedb86796001557eb15d4c@ec2-54-247-169-129.eu-west-1.compute.amazonaws.com:5432/d63a4ogje2eo78");
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)

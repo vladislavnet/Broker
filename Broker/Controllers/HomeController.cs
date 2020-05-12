@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using Broker.Models;
+using Broker.DAL;
 
 namespace Broker.Controllers
 {
@@ -22,10 +23,16 @@ namespace Broker.Controllers
         {
             return View();
         }
-
-        public IActionResult Privacy()
+        
+        public JsonResult GetShares()
         {
-            return View();
+            using(var db = new BrokerContext())
+            {
+                var role1 = new Role() { Name = "Admin" };
+                db.Roles.Add(role1);
+                db.SaveChanges();
+            }
+            return Json("Hello");
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
