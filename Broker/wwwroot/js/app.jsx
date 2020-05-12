@@ -1,6 +1,6 @@
-﻿import React from 'react';
-import { BrowserRouter, Route, Switch } from 'react-router-dom'
-import { Navbar } from '../Components/Navbar'
+﻿//import React from 'react';
+//import { BrowserRouter, Route, Switch } from 'react-router-dom'
+import { Navbar } from './Components/Navbar'
 
 
 
@@ -24,6 +24,6 @@ class Info extends React.Component {
 }
 
 ReactDOM.render(
-    <Info />,
+    <App />,
     document.getElementById("app")
 );
