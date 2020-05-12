@@ -1,6 +1,6 @@
 ﻿import React from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom'
-import { Navbar } from './components/Navbar'
+import { Navbar } from './Components/Navbar'
 
 
 function App() {
@@ -11,6 +11,7 @@ function App() {
                 <Alert />
                 <Switch>
                     <Route path={'/'} exact component={Home} />
+
                 </Switch>
             </div>
         </BrowserRouter>
