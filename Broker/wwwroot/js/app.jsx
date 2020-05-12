@@ -17,7 +17,7 @@ class App extends React.Component {
 class Info extends React.Component {
     render() {
         return (
-            <div>jopa</div>
+            <h1>jopa</h1>
                 );
 
     }
