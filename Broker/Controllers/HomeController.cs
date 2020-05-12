@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using Broker.Models;
 using Broker.DAL;
+using Microsoft.EntityFrameworkCore;
 
 namespace Broker.Controllers
 {
@@ -24,16 +25,18 @@ namespace Broker.Controllers
             return View();
         }
 
-        [Route("api/Get/Shares")]
+        [Route("api/getshares")]
         public JsonResult GetShares()
         {
-            using(var db = new BrokerContext())
+            var Shares = new List<Share>();
+            using (var db = new BrokerContext())
             {
-                var role1 = new Role() { Name = "Admin" };
-                db.Roles.Add(role1);
-                db.SaveChanges();
+                //var role1 = new Role() { Name = "Admin" };
+                //db.Roles.Add(role1);
+                //db.SaveChanges();
+                Shares = db.Shares.Include(x => x.Country).Include(x => x.HistoryPriceShares).ToList();
             }
-            return Json("Hello");
+            return Json(Shares);
         }
 
         [Route("api/Get/Hello")]
