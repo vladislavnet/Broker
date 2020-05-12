@@ -35,6 +35,7 @@ namespace Broker.Controllers
             return Json("Hello");
         }
 
+        [Route("api/Get/Hello")]
         public JsonResult GetHello()
         {
             return Json("Hello");
