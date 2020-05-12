@@ -1,5 +1,8 @@
-﻿
-const NavLink = ReactRouterDOM.NavLink;
+﻿//import React from 'react';
+//import { BrowserRouter, Route, Switch } from 'react-router-dom'
+//import { Navbar } from 'Navbar'
+//const NavLink = ReactRouterDOM.NavLink;
+import { NavLink } from 'react-router-dom'
 
 class Navbar extends React.Component {
     render() {
