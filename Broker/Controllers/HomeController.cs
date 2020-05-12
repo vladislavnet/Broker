@@ -23,7 +23,8 @@ namespace Broker.Controllers
         {
             return View();
         }
-        
+
+        [Route("api/Get/Shares")]
         public JsonResult GetShares()
         {
             using(var db = new BrokerContext())
@@ -32,6 +33,12 @@ namespace Broker.Controllers
                 db.Roles.Add(role1);
                 db.SaveChanges();
             }
+            return Json("Hello");
+        }
+
+        [Route("api/Get/Hello")]
+        public JsonResult GetHello()
+        {
             return Json("Hello");
         }
 
