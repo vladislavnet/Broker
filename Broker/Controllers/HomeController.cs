@@ -8,36 +8,32 @@ using Microsoft.Extensions.Logging;
 using Broker.Models;
 using Broker.DAL;
 using Microsoft.EntityFrameworkCore;
+using Broker.Util;
+using Microsoft.AspNetCore.Hosting;
 
 namespace Broker.Controllers
 {
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
+        private readonly IWebHostEnvironment _env;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(ILogger<HomeController> logger, IWebHostEnvironment env)
         {
             _logger = logger;
+            _env = env;
         }
+
+        //public HtmlResult Index()
+        //{
+        //    return new HtmlResult("<div id=\"app\"></div>", _env);
+        //}
 
         public IActionResult Index()
         {
             return View();
         }
 
-        [Route("api/getshares")]
-        public JsonResult GetShares()
-        {
-            var Shares = new List<Share>();
-            using (var db = new BrokerContext())
-            {
-                //var role1 = new Role() { Name = "Admin" };
-                //db.Roles.Add(role1);
-                //db.SaveChanges();
-                Shares = db.Shares.Include(x => x.Country).Include(x => x.HistoryPriceShares).ToList();
-            }
-            return Json(Shares);
-        }
 
         [Route("api/Get/Hello")]
         public JsonResult GetHello()

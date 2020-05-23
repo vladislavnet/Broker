@@ -26,7 +26,7 @@ namespace Broker.DAL
         {
             //optionsBuilder.UseNpgsql("postgres://cjaavpowpuexto:e8615de214091bc839f60bcf881c5d62f08c7decaecedb86796001557eb15d4c@ec2-54-247-169-129.eu-west-1.compute.amazonaws.com:5432/d63a4ogje2eo78");
             //optionsBuilder.UseNpgsql("postgres://cjaavpowpuexto:e8615de214091bc839f60bcf881c5d62f08c7decaecedb86796001557eb15d4c@ec2-54-247-169-129.eu-west-1.compute.amazonaws.com:5432/d63a4ogje2eo78");
-            optionsBuilder.UseSqlite("Filename=brokerdb");
+            optionsBuilder.UseSqlite("Filename=brokerDB");
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -40,7 +40,7 @@ namespace Broker.DAL
 
             //Многие ко многим
             modelBuilder.Entity<PortfolioShare>()
-            .HasKey(t => new { t.PortfolioId, t.ShareId });
+            .HasKey(t => new { t.Id });
 
             modelBuilder.Entity<PortfolioShare>()
             .HasOne(sc => sc.Portfolio)
@@ -51,6 +51,29 @@ namespace Broker.DAL
            .HasOne(sc => sc.Share)
            .WithMany(s => s.PortfolioShares)
            .HasForeignKey(sc => sc.ShareId);
+
+
+            //инициализация
+            modelBuilder.Entity<Role>().HasData(
+                new Role[]
+                {
+                    new Role {Id = 1, Name="User"},
+                    new Role {Id = 2, Name="Admin"}
+                });
+            modelBuilder.Entity<User>().HasData(
+                new User[]
+                {
+                    new User {Id = 1, Email="Admin@mail.ru", Password="1234", FirstName="Admin", SecondName = "Admin", Balance=100000, RoleId=1}
+                });
+            modelBuilder.Entity<Country>().HasData(
+                new Country[]
+                {
+                    new Country { Id = 1, Name = "Россия"},
+                    new Country { Id = 2, Name = "США"},
+                    new Country { Id = 3, Name = "Южная Корея"},
+                    new Country { Id = 4, Name = "Китай"},
+                    new Country { Id = 5, Name = "Япония"}
+                });
         }
     }
 }

@@ -7,6 +7,7 @@ namespace Broker.Models
 {
     public class PortfolioShare
     {
+        public int Id { get; set; }
         public int PortfolioId { get; set; }
         public Portfolio Portfolio { get; set; }
 
